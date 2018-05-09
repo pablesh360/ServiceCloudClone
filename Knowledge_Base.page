@@ -1,0 +1,446 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0">
+  <html>
+    <head>
+        <title>Knowledge Base</title>
+        <meta name="viewport" content="width=device-width, inicial-scale=1.0"/>
+        <apex:stylesheet value="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+        <apex:stylesheet value="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+        <!--<apex:stylesheet value="{!URLFOR($Resource.Knowledge_Base, 'CSS/style.css')}"/> -->
+        <c:Knowledge_Base_CSS />
+        <apex:stylesheet value="{!URLFOR($Resource.Knowledge_Base, 'CSS/stylesheet.css')}"/>
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
+        <apex:includeScript value="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"/>
+        <style>
+            .mobileImg{
+                display: none;
+            }
+            .footer_ChatIcon{
+                display: block;
+                text-align: center;
+                margin: 0px auto;
+            }
+            .serchSec input{
+                border: 1px solid #aaa;
+                font-size: 20px;
+            }
+            #liveagent_button_online{
+                color: #7B7B7B
+            }
+            #liveagent_button_offline{
+                color: #b1b1b1 !important;
+                cursor: default;
+            }
+            #liveagent_button_online1{
+                color: #7B7B7B
+            }
+            #liveagent_button_offline1{
+                color: #b1b1b1 !important;
+                cursor: default;
+            }
+            .serchSec input::placeholder{
+                font-size: 15px;
+                text-align: center;
+              }
+            @media (max-width: 767px){
+                .mobileImg{
+                    display: block;
+                }
+                .DesktopImg{
+                    display: none;
+                }
+                .orderSec, .productSec{
+                    margin-top: 1rem;
+                }
+                .stylingSec{
+                    margin: 0rem 0;
+                }
+                footer ul li{
+                    padding: 1rem 0;
+                }
+                .footerRightSec {
+                    margin-top: 1rem;
+                }
+                .footerHead{
+                    padding: 0rem 0 1rem;
+                }
+                .text_center_mobile{
+                    text-align: center !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="headerColor">
+            <div class="container">
+                <div class="row header">
+                    <div class="col-sm-6 logoSection">
+                        <a href="#">
+                            <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/Menu/help-centermenuicon-.svg')}" />
+                            <span><strong>ModCloth</strong> <br/>    
+                            <em>Help Center</em></span>
+                        </a>
+                         
+                    </div>
+                    <div class="col-sm-6 headerSideLink text_center_mobile">
+                        <strong><a href="https://www.modcloth.com/">back to ModCloth.com &raquo;</a></strong>
+                    </div>
+                </div>
+                <div class="row headerColor serchSec">
+                    <div class="col-sm-12 text-center">
+                        <span>
+                            <input type="text" placeholder="What do you need help with?" />
+                            <a href="#"><i class="ion-ios-search"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="socialSec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <ul>
+                            <li>
+                                <strong>Get Help Now:</strong>
+                            </li>
+                            <li>
+                                <p><a href="javascript:void(0)" id="liveagent_button_online" onclick="liveagent.startChat('5737F000000Ts1A')" style="display: none;"><i class="ion-ios-chatbubble-outline"></i>Chat with us</a></p>
+
+                                <p><a href="javascript:void(0)" id="liveagent_button_offline" title="No agent is available" style="display: none;"><i class="ion-ios-chatbubble-outline"></i>Chat with us</a></p>
+                            </li>
+                            <li>
+                                <p><i class="ion-ios-telephone-outline"></i>Call us at (888) 495–9699</p>
+                            </li>
+                            <li>
+                                <p><a href="/kb/CustomercareHelp" target="_blank"><i class="ion-ios-paper-outline"></i>Write to us</a></p>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row orderSec">
+                <div class="col-sm-3">
+                    <div class="sideBar">
+                        <ul>
+                            <li><a href="#">
+                                <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/Menu/help-centermenuicon-.svg')}" />
+                                Help Center Home
+                                </a>
+                            </li>
+                            <li><a href="/kb/apex/Knowledge_Base_Article">
+                                <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/Menu/shippingmenuicon-.svg')}" />
+                                    U.S. Shipping &amp; Return
+                                </a>
+                            </li>
+                            <li><a href="#">
+                                <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/Menu/internationalmenuicon-.svg')}" />
+                                    International Customer
+                                </a>
+                            </li>
+                            <li><a href="#">Product &amp; Measurements</a></li>
+                            <li><a href="#">Contests &amp; Community</a></li>
+                            <li><a href="#">My Account &amp; Orders</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="orderFirstSec">
+                        <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/Menu/account-ordersmenuicon-.svg')}" />
+                        <h3>
+                            MY ORDERS
+                        </h3>
+                        <ul>
+                            <li>
+                                Check Order Status  
+                            </li>
+                            <li>
+                                Return or Exchange an Order 
+                            </li>
+                            <li>
+                                My Account  
+                            </li>
+                        </ul>
+                    
+                        <h3>
+                            My Account FAQ
+                        </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. 
+                        </p>
+                        <p>
+                            Ut enim ad minim veniam,
+                            quis nostrud exercitation .
+                        </p>
+                        <a href="#">See All 8 Artical &raquo;</a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="orderSecondSec">
+                        <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/Menu/shippingmenuicon-.svg')}" />
+                        <h3>
+                            U.S. SHIPPING &amp; RETURN
+                        </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        </p>
+                    
+                        <h3>
+                            U.S. Return &amp; Exchange
+                        </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. 
+                        </p>
+                        <p>
+                            Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.
+                        </p>
+                        <a href="#">See All 8 Artical &raquo;</a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="orderthirdSec">
+                        <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/Menu/internationalmenuicon-.svg')}" />
+                        <h3>
+                            INTERNATIONAL CUSTOMER
+                        </h3>   
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis
+                        </p>
+                        <a href="#">See All 8 Artical &raquo;</a>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                <div class="col-sm-11">
+                    <div class="productSec">
+                        <div class="text-center productImgsec">
+                            <h2><em>Product &amp; Measurements</em></h2>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-4">
+                                <div class="firstProSec">
+                                    <ul>
+                                        <li>
+                                            ModCloth Label Size Charts
+                                        </li>
+                                        <li>
+                                            Bra/Cup Size Chart
+                                        </li>
+                                        <li>
+                                            My Measurement Guide
+                                        </li>
+                                        <li>
+                                            How to get Back in Stock Notification
+                                        </li>
+                                    </ul>   
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="SecondProSec">
+                                    <h3>
+                                        FINDING YOUR FIT
+                                    </h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="thirdProSec">
+                                    <h3>
+                                        ABOUT OUR PRODUCTS
+                                    </h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+                                    </p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <a href="#">See All 8 Artical &raquo;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row stylingSec">
+                <div class="col-sm-12 text-center">
+                    <h2><em>Styling Advice</em></h2>
+                </div>
+                <div class="col-sm-6 order-md-12">
+                    <div class="stylImg">
+                        
+                    </div>
+                </div>
+                <div class="col-sm-6 order-md-1">
+                    <div class="conStyling">
+                        <div>
+                            <h3>Talk to Our ModStylists<sup>&reg;</sup></h3>
+                        </div>
+                        <div class="modContent">
+                            <p>
+                                Dedicated style expertise that's fast, friendly, and free! They'll help you find and define your personal style with advice to fit all sizes, shapes, and tastes.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="#" target="_blank" class="chatNow">Chat Now</a>
+                            <a href="#" target="_blank" class="learnMore">Learn More</a>
+                         </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-center missionSec">
+                        <h2><em>We're here to help:</em></h2>
+                        <h3>
+                            Our Mission
+                        </h3>
+                        <p>
+                            Inspired by our customers, we create lasting connections through integrity, empathy, and uncommon care. We are empowered to deliver care as unique as you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row teamSec justify-content-around">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                        <h3>Meet the Team</h3>
+                        <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/CC-grid-mobile.jpg')}" styleClass="mobileImg"/>
+                        <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/cc-grid.jpg')}" styleClass="DesktopImg"/>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row justify-content-around">
+                <div class="col-sm-8 ">
+                    <div class="text-center prettyCoolSec">
+                        <h3>We Think We're Pretty Cool. You Do Too.</h3>
+                        <p>
+                            <sup>&ldquo;</sup> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,<sub>&bdquo;</sub>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div>
+                                    <h3 class="footerHead">ModCloth Help Center</h3>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    </p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)" id="liveagent_button_online1" onclick="liveagent.startChat('5737F000000Ts1A')" style="display: none;">
+                                            <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/footer-chat.svg')}" styleClass="footer_ChatIcon"/>
+                                            Chat Now
+                                        </a>
+                                        <a href="javascript:void(0)" id="liveagent_button_offline1" title="No agent is available" style="display: none;">
+                                            <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/footer-chat.svg')}" styleClass="footer_ChatIcon"/>
+                                            Chat Now
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/footer-phone.svg')}" styleClass="footer_ChatIcon"/>
+                                        Call Us
+                                        <span>(888) 495-9699</span>
+                                    </li>
+                                    <li>
+                                        <a href="/kb/CustomercareHelp" target="_blank">
+                                            <apex:image url="{!URLFOR($Resource.Knowledge_Base, 'Image/Icon/footer-mail.svg')}" styleClass="footer_ChatIcon"/>
+                                            Write to Us
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="footerRightSec">
+                            <strong class="backLink"><a href="https://www.modcloth.com/">back to ModCloth.com &raquo;</a></strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <div class="copyrightSec">
+                        <p>copyright &copy; 2002-2018 ModCloth.com. All right reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+       
+
+            <script type="text/javascript">
+                if (!window._laq) { 
+                    window._laq = []; 
+                }
+                    
+                window._laq.push( function() { 
+                    liveagent.showWhenOnline('5737F000000Ts1A', document.getElementById('liveagent_button_online'));
+                    liveagent.showWhenOffline('5737F000000Ts1A', document.getElementById('liveagent_button_offline'));
+                    liveagent.showWhenOnline('5737F000000Ts1A', document.getElementById('liveagent_button_online1'));
+                    liveagent.showWhenOffline('5737F000000Ts1A', document.getElementById('liveagent_button_offline1'));
+                });
+            </script>
+
+
+
+            <script type='text/javascript' src='https://c.la1-c1cs-ukb.salesforceliveagent.com/content/g/js/42.0/deployment.js'></script>
+            <script type='text/javascript'>
+                //liveagent.setChatWindowHeight(580);
+                liveagent.init('https://d.la1-c1cs-ukb.salesforceliveagent.com/chat', '5727F000000TyZr', '00D0k0000000mzn');
+                var orgOpen = window.open;
+                window.open = function (url, windowName, windowFeatures) {
+
+                    /* Width of the chat window. Use your own value. */
+                    var chatWindowHeight=580;
+
+                    /* Height of the chat window. Use your own value. */
+                    var chatWindowWidth=500;
+
+                    /* Calculate the left position to keep the chatwindow in center */ 
+                    var left = parseInt((screen.availWidth/2) - (chatWindowWidth/2));
+
+                    /* Calculate the top position to keep the chatwindow in center */
+                    var top = parseInt((screen.availHeight/2) - (chatWindowHeight/2));
+
+                    /* Create the arguments for window.open method. */
+                    var windowFeatures = "width=" + chatWindowWidth + ",height=" + chatWindowHeight + ",status,resizable,left=" + left + ",top=" + top + "screenX=" + left + ",screenY=" + top;
+
+                    return orgOpen(url, windowName, windowFeatures); 
+                        }   
+            </script>
+    </body>
+</html>
+</apex:page>
